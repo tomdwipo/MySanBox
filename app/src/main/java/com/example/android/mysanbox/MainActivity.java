@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onCompletion(MediaPlayer mp) {
                 int duration = mp.getDuration();
-                Toast.makeText(getApplicationContext(),"duration: "+duration/1000+"second",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"duration: "+duration/1000+" second",Toast.LENGTH_LONG).show();
             }
         });
 

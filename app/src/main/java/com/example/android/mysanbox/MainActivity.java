@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView artistTextView;
@@ -22,6 +23,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mediaPlayer = new MediaPlayer();
         mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.game_field);
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                int duration = mp.getDuration();
+                Toast.makeText(getApplicationContext(),"duration: "+duration/1000+"second",Toast.LENGTH_LONG).show();
+            }
+        });
 
         prevButton = (Button)findViewById(R.id.prevButton);
         playButton = (Button)findViewById(R.id.playButton);
